@@ -62,16 +62,25 @@ function solicitudAJAX(params) {
     var data = document.querySelector("#nPokemon").data;
     var busqueda = document.querySelector("#nPokemon").value - 1;
     var url = data.results[busqueda].url;
+
   
     if (busqueda >= 0) {
       var objXMLHttpRequest = new XMLHttpRequest();
   
+
       objXMLHttpRequest.onreadystatechange = function () {
         if (objXMLHttpRequest.readyState === 4) {
           if (objXMLHttpRequest.status === 200) {
             let json = JSON.parse(objXMLHttpRequest.responseText);
             let nombre = json.name;
             let uriImg = json.sprites.other.home.front_default;
+
+            let pokeHP = json.stats[0].base_stat;
+            let pokeattack = json.stats[1].base_stat;
+            let pokedefense = json.stats[2].base_stat;
+            let pokeagility = json.stats[3].base_stat;
+            
+            console.log(json);
             let html =
               `<div class="card" style="width: 18rem; center;">
                 <img src="` +
@@ -81,10 +90,20 @@ function solicitudAJAX(params) {
                 <h5 class="card-title">` +
                 nombre +
                    `</h5>
+                   <h6>HP: `+
+                   pokeHP +
+                   ` agility: `+
+                   pokeagility +
+                   `</h6>
+                   <h7>attack: `+
+                  pokeattack  +
+                  ` defense: ` +
+                  pokedefense +
+                   `</h7>
                   <p class="card-text"></p>
                  <a href="https://pokemon.fandom.com/es/wiki/` +
                  nombre +
-                 `" class="btn btn-primary">Go somewhere</a>
+                 `" class="btn btn-primary">Mas informacion</a>
     </div>
   </div>`;
             tarjetas.innerHTML = html;
