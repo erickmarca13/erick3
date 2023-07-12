@@ -82,7 +82,9 @@ function solicitudAJAX(params) {
                 nombre +
                    `</h5>
                   <p class="card-text"></p>
-                 <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <a href="https://pokemon.fandom.com/es/wiki/` +
+                 nombre +
+                 `" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`;
             tarjetas.innerHTML = html;
