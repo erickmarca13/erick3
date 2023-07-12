@@ -33,12 +33,12 @@ function solicitudAJAX(params) {
           let uriImg = json.sprites.other.home.front_default;
   
           let html =
-            `<div class="card" style="width: 18rem;">
+            `<div class="card" style="width: 0 rem;">
     <img src="` +
             uriImg +
             `" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">` +
+      <h5 class="card-title">`  +
             nombre +
             `</h5>
       <p class="card-text"></p>
@@ -73,16 +73,16 @@ function solicitudAJAX(params) {
             let nombre = json.name;
             let uriImg = json.sprites.other.home.front_default;
             let html =
-              `<div class="card" style="width: 18rem;">
-    <img src="` +
+              `<div class="card" style="width: 18rem; center;">
+                <img src="` +
               uriImg +
               `" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">` +
-              nombre +
-              `</h5>
-      <p class="card-text"></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+               <div class="card-body">
+                <h5 class="card-title">` +
+                nombre +
+                   `</h5>
+                  <p class="card-text"></p>
+                 <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`;
             tarjetas.innerHTML = html;
